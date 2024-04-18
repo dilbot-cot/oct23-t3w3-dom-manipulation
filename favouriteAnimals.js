@@ -95,6 +95,9 @@ function addAnimalToList(event, targetInputId){
 	// 3. Push the text value into the animals array 
 	animals.push(foundInputFieldValue);
 
+	// 3.5 reset the input field
+	targetInputField.Value = "";
+	
 	// 4. Recreate the animal list
 	createAnimalList();
 	// Make sure this function deletes the existing list first!
