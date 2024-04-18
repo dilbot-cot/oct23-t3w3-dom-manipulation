@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
 
-	<script src="./favouriteAnimals.js"></script>
+	
 
 	<link rel="stylesheet" href="style.css">
 </head>
@@ -14,23 +14,24 @@
 
 	<section>
 		<h2>Real form:</h2>
-		<form action="realform-addAnimal">
-			<label for="">New animal:</label>
+		<form>
+			<label for="realform-addAnimal">New animal:</label>
 			<input type="text" name="realform-addAnimal" id="realform-addAnimal">
-			<h6 id="realform-hint">Enter another favourite animal</h6>
+			<h6 id="realform-hint">Enter another favourite animal!</h6>
 
-			<button type="submit">Add new animal</button>
+			<button id="realform-submit" type="submit">Add new animal</button>
 		</form>
 	</section>
 
 	<section>
 		<h2>Fake form:</h2>
+
 		<div>
 			<label for="fakeform-addAnimal">New animal:</label>
 			<input type="text" name="fakeform-addAnimal" id="fakeform-addAnimal">
-			<h6 id="fakeform-hint">Enter another favourite animal</h6>
-			
-			<button type="submit">Add new animal</button>
+			<h6 id="fakeform-hint">Enter another favourite animal!</h6>
+
+			<button id="fakeform-submit" type="submit">Add new animal</button>
 		</div>
 	</section>
 
@@ -39,12 +40,13 @@
 	</ol>
 
 
-
+	<script src="./favouriteAnimals.js"></script>
 	<script>
 		createAnimalList();
 	</script>
 
 	<script src="./themeControl.js"></script>
+
 
 	<button onclick="setThemeToDark()">
 		Set theme to DARK
