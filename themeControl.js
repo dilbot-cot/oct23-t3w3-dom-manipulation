@@ -18,6 +18,25 @@ function changeCssTheme(themeName){
 	}
 }
 
+function setThemeToDark(){
+	changeCssTheme("dark");
+}
+
+function setThemeToLight(){
+	changeCssTheme("light");
+}
+
+function toggleCssTheme() {
+	let currentBackgroundColour = getComputedStyle(document.documentElement).getPropertyValue("--background");
+
+	console.log(`Current background colour is: ${currentBackgroundColour}`)
+	if (currentBackgroundColour == "white") {
+		changeCssTheme("dark");
+	} else {
+		changeCssTheme("light");
+	}
+}
+
 changeCssTheme("dark");
 
 console.log('Hello from Alex\'s code');
