@@ -76,30 +76,56 @@ function removeAnimalFromList(targetAnimalId){
 
 }
 
-function addAnimalToList(event, targetInputId) {
-	event.preventDefault(); //prevents form submission from refreshing the page
+function addAnimalToList(event, targetInputId){
+	// This prevents forms from reloading the page:
+	event.preventDefault();
+
 	// 1. Find the input field matching targetInputId
 	let targetInputField = document.getElementById(targetInputId);
 
-	// 2 .Get the text value from the input field that we found
-	let foundInputFieldValue = targetInputField.Value;
-	console.log(`Input field value to add to list is: ${foundInputFieldValue}`);
+	// 2. Get the text value from the input field that we found 
+	let foundInputFieldValue = targetInputField.value;
+	console.log("Input field value to add to list is: " + foundInputFieldValue);
 
-	// 3. Push the text value into the animals array
+
+	// 2.5 Validate for empty and duplicate data in the input field
+	// array.filter or Set to check for duplicate
+	// checking for empty string 
+
+	// 3. Push the text value into the animals array 
 	animals.push(foundInputFieldValue);
 
 	// 4. Recreate the animal list
 	createAnimalList();
-	// Make sure this function deletes the exisiting list first!
-
+	// Make sure this function deletes the existing list first!
 }
 
 let fakeFormButton = document.getElementById("fakeform-submit");
-fakeFormButton.addEventListener("click", (event) => {addAnimalToList(event, "fakeform-addAnimal")});
+fakeFormButton.addEventListener("click", (event) => {
+	addAnimalToList(event, "fakeform-addAnimal")
+});
 
 let realFormButton = document.getElementById("realform-submit");
-realFormButton.addEventListener("click", (event) => {addAnimalToList(event, "realform-addAnimal")});
-// createAnimalList();
+realFormButton.addEventListener("click", (event) => {
+	addAnimalToList(event, "realform-addAnimal")
+});
 
+function inputHelperReveal(targetElementId){
+	let hintElement = document.getElementById(targetElementId);
+	hintElement.style.display = "inherit";
+}
 
-console.log("Hello from the imported code file!");
+function inputHelperHide(targetElementId){
+	let hintElement = document.getElementById(targetElementId);
+	hintElement.style.display = "none";
+}
+
+let realFormInput = document.getElementById("realform-addAnimal");
+realFormInput.addEventListener("focusin", () => {inputHelperReveal("realform-hint")});
+realFormInput.addEventListener("focusout", () => {inputHelperHide("realform-hint")});
+inputHelperHide("realform-hint");
+
+let fakeFormInput = document.getElementById("fakeform-addAnimal");
+fakeFormInput.addEventListener("focusin", () => {inputHelperReveal("fakeform-hint")});
+fakeFormInput.addEventListener("focusout", () => {inputHelperHide("fakeform-hint")});
+inputHelperHide("fakeform-hint");
